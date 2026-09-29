@@ -151,7 +151,7 @@
     <!-- Ürün Kataloğu -->
     <section id="urunler" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-            <h2 class="text-3xl sm:text-4xl font-orbitron font-bold text-white">Ürünleremiz</h2>
+            <h2 class="text-3xl sm:text-4xl font-orbitron font-bold text-white">Ürünlerimiz</h2>
             <p class="text-gray-400 mt-2">Atölyemizde özenle basılan 3D tasarımlar</p>
         </div>
 
@@ -164,7 +164,7 @@
                         <span class="absolute top-4 left-4 z-10 px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-gradient-to-r from-amber-500 to-red-500 text-black shadow-lg animate-pulse">
                             🔥 BEST SELLER
                         </span>
-                        <img src="https://fbi.cults3d.com/uploaders/39311543/illustration-file/61c9d235-49d2-4423-afad-521919b49de7/hyper-hopper-heros-03.jpg" 
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop" 
                              alt="Hyper Hopper 3D Print" 
                              class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     </div>
@@ -200,9 +200,8 @@
                         <span class="absolute top-4 left-4 z-10 px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">
                             ✨ KOLEKSİYON SERİSİ
                         </span>
-                        <!-- Dinamik Yüklenen Rastgele Işın Kılıcı Görseli -->
                         <img id="lightsaber-img" 
-                             src="" 
+                             src="https://images.unsplash.com/photo-1601814933824-fd0b574dd592?q=80&w=1000&auto=format&fit=crop" 
                              alt="Luke Skywalker Collapsing Lightsaber" 
                              class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     </div>
@@ -303,7 +302,7 @@
 
                 <!-- Miktar Butonları ve Özel Girdi -->
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6">
-                    <button onclick="selectDonateAmount(50, this)" class="donate-btn py-3 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 font-bold text-sm transition">
+                    <button onclick="selectDonateAmount(50, this)" class="donate-btn py-3 rounded-xl bg-cyan-500/20 border border-cyan-500/60 text-cyan-300 font-bold text-sm transition">
                         50 ₺
                     </button>
                     <button onclick="selectDonateAmount(100, this)" class="donate-btn py-3 rounded-xl bg-gray-800/80 hover:bg-cyan-500/20 border border-gray-700 text-gray-300 font-bold text-sm transition">
@@ -365,15 +364,21 @@
 
     <!-- JavaScript Kodları -->
     <script>
-        // Sayfa Yüklendiğinde Rastgele Luke Skywalker Collapsing Işın Kılıcı Görseli Seçimi
+        // Hotlink engeline takılmayan güvenilir görseller
         const lightsaberImages = [
-            "https://media.printables.com/media/prints/135347/images/1293436_dbe13d6c-f15b-4866-bac9-042ad04f8b7b/thumbs/inside/1280x960/jpeg/img_3821.jpg",
-            "https://media.printables.com/media/prints/3253/images/32283_354ca70a-20de-4416-bed1-0ed5dc9f3ad2/thumbs/cover/1200x630/jpeg/3d-printing-world-lightsaber.jpg",
-            "https://images.thingiverse.com/assets/2f/cd/72/72/72/featured_preview_Luke_Skywalker_Lightsaber.jpg"
+            "https://images.unsplash.com/photo-1601814933824-fd0b574dd592?q=80&w=1000&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1579566346927-c68383817a25?q=80&w=1000&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=1000&auto=format&fit=crop"
         ];
         
         const selectedLightsaberImg = lightsaberImages[Math.floor(Math.random() * lightsaberImages.length)];
-        document.getElementById("lightsaber-img").src = selectedLightsaberImg;
+        
+        document.addEventListener("DOMContentLoaded", function() {
+            const lightsaberEl = document.getElementById("lightsaber-img");
+            if (lightsaberEl) {
+                lightsaberEl.src = selectedLightsaberImg;
+            }
+        });
 
         // Ürün Veritabanı
         const products = {
@@ -381,13 +386,13 @@
                 id: 'hyper-hopper',
                 name: 'Hyper Hopper (Best Seller)',
                 price: 75.00,
-                img: 'https://fbi.cults3d.com/uploaders/39311543/illustration-file/61c9d235-49d2-4423-afad-521919b49de7/hyper-hopper-heros-03.jpg'
+                img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop'
             },
             'lightsaber': {
                 id: 'lightsaber',
                 name: 'Luke Skywalker Collapsing Işın Kılıcı',
                 price: 300.00,
-                img: selectedLightsaberImg
+                get img() { return selectedLightsaberImg; }
             }
         };
 
@@ -396,22 +401,32 @@
         // Sepet Aç/Kapat
         function toggleCart() {
             const drawer = document.getElementById('cart-drawer');
-            if (drawer.classList.contains('opacity-0')) {
-                drawer.classList.remove('opacity-0', 'pointer-events-none');
-            } else {
-                drawer.classList.add('opacity-0', 'pointer-events-none');
+            if (drawer) {
+                if (drawer.classList.contains('opacity-0')) {
+                    drawer.classList.remove('opacity-0', 'pointer-events-none');
+                } else {
+                    drawer.classList.add('opacity-0', 'pointer-events-none');
+                }
             }
         }
 
         // Sepete Ekle
         function addToCart(productId) {
             const product = products[productId];
+            if (!product) return;
+
             const existingItem = cart.find(item => item.id === productId);
 
             if (existingItem) {
                 existingItem.qty += 1;
             } else {
-                cart.push({ ...product, qty: 1 });
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    img: product.img,
+                    qty: 1
+                });
             }
 
             updateCartUI();
@@ -439,41 +454,53 @@
             const totalItems = cart.reduce((acc, item) => acc + item.qty, 0);
             const totalPrice = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
 
-            if (totalItems > 0) {
-                badge.innerText = totalItems;
-                badge.classList.remove('hidden');
-            } else {
-                badge.classList.add('hidden');
+            if (badge) {
+                if (totalItems > 0) {
+                    badge.innerText = totalItems;
+                    badge.classList.remove('hidden');
+                } else {
+                    badge.classList.add('hidden');
+                }
             }
 
-            if (cart.length === 0) {
-                container.innerHTML = '<p class="text-gray-500 text-center py-10">Sepetiniz boş.</p>';
-            } else {
-                container.innerHTML = cart.map(item => `
-                    <div class="flex items-center justify-between gap-3 bg-gray-800/50 p-3 rounded-xl border border-gray-700">
-                        <img src="${item.img}" class="w-14 h-14 object-cover rounded-lg">
-                        <div class="flex-1">
-                            <h4 class="font-bold text-xs text-white">${item.name}</h4>
-                            <p class="text-cyan-400 text-xs font-semibold mt-1">${item.price.toFixed(2)} ₺</p>
+            if (container) {
+                if (cart.length === 0) {
+                    container.innerHTML = '<p class="text-gray-500 text-center py-10">Sepetiniz boş.</p>';
+                } else {
+                    container.innerHTML = cart.map(item => `
+                        <div class="flex items-center justify-between gap-3 bg-gray-800/50 p-3 rounded-xl border border-gray-700">
+                            <img src="${item.img}" class="w-14 h-14 object-cover rounded-lg">
+                            <div class="flex-1">
+                                <h4 class="font-bold text-xs text-white">${item.name}</h4>
+                                <p class="text-cyan-400 text-xs font-semibold mt-1">${item.price.toFixed(2)} ₺</p>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <button onclick="changeQty('${item.id}', -1)" class="w-6 h-6 rounded bg-gray-700 hover:bg-gray-600 flex items-center justify-center text-xs">-</button>
+                                <span class="text-xs font-bold">${item.qty}</span>
+                                <button onclick="changeQty('${item.id}', 1)" class="w-6 h-6 rounded bg-gray-700 hover:bg-gray-600 flex items-center justify-center text-xs">+</button>
+                            </div>
                         </div>
-                        <div class="flex items-center gap-2">
-                            <button onclick="changeQty('${item.id}', -1)" class="w-6 h-6 rounded bg-gray-700 hover:bg-gray-600 flex items-center justify-center text-xs">-</button>
-                            <span class="text-xs font-bold">${item.qty}</span>
-                            <button onclick="changeQty('${item.id}', 1)" class="w-6 h-6 rounded bg-gray-700 hover:bg-gray-600 flex items-center justify-center text-xs">+</button>
-                        </div>
-                    </div>
-                `).join('');
+                    `).join('');
+                }
             }
 
-            totalEl.innerText = `${totalPrice.toFixed(2)} ₺`;
+            if (totalEl) {
+                totalEl.innerText = `${totalPrice.toFixed(2)} ₺`;
+            }
         }
 
         // Yorum Ekleme
         function addReview(e) {
             e.preventDefault();
-            const name = document.getElementById('review-name').value;
-            const rating = parseInt(document.getElementById('review-rating').value);
-            const text = document.getElementById('review-text').value;
+            const nameEl = document.getElementById('review-name');
+            const ratingEl = document.getElementById('review-rating');
+            const textEl = document.getElementById('review-text');
+
+            if (!nameEl || !ratingEl || !textEl) return;
+
+            const name = nameEl.value;
+            const rating = parseInt(ratingEl.value);
+            const text = textEl.value;
 
             const stars = '★'.repeat(rating) + '☆'.repeat(5 - rating);
             const container = document.getElementById('reviews-container');
@@ -491,7 +518,9 @@
                 <p class="text-xs text-gray-300">"${text}"</p>
             `;
 
-            container.prepend(newReview);
+            if (container) {
+                container.prepend(newReview);
+            }
             document.getElementById('review-form').reset();
             alert('Teşekkürler! Yorumunuz başarıyla eklendi.');
         }
@@ -503,7 +532,8 @@
 
         function selectDonateAmount(amount, btnElement) {
             selectedDonateAmount = amount;
-            document.getElementById('custom-donate-input').value = '';
+            const customInput = document.getElementById('custom-donate-input');
+            if (customInput) customInput.value = '';
             
             document.querySelectorAll('.donate-btn').forEach(btn => {
                 btn.className = "donate-btn py-3 rounded-xl bg-gray-800/80 hover:bg-cyan-500/20 border border-gray-700 text-gray-300 font-bold text-sm transition";
@@ -531,9 +561,13 @@
 
             const percentage = Math.min((currentRaised / currentGoal) * 100, 100);
 
-            document.getElementById('donation-status-text').innerText = `Toplanan: ${currentRaised} ₺`;
-            document.getElementById('donation-goal-text').innerText = `Hedef: ${currentGoal} ₺`;
-            document.getElementById('donation-progress-bar').style.width = `${percentage}%`;
+            const statusTxt = document.getElementById('donation-status-text');
+            const goalTxt = document.getElementById('donation-goal-text');
+            const progressBar = document.getElementById('donation-progress-bar');
+
+            if (statusTxt) statusTxt.innerText = `Toplanan: ${currentRaised} ₺`;
+            if (goalTxt) goalTxt.innerText = `Hedef: ${currentGoal} ₺`;
+            if (progressBar) progressBar.style.width = `${percentage}%`;
 
             alert(`AIMCraft3D atölyesine sağladığınız ${selectedDonateAmount} ₺ destek için çok teşekkür ederiz! ❤️`);
         }
