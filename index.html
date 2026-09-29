@@ -216,7 +216,7 @@
                             <span class="text-2xl font-bold text-cyan-400">300,00 ₺</span>
                         </div>
                         <p class="text-gray-400 text-sm mb-4 leading-relaxed">
-                            Tek bir bilek hareketiyle açılıp kapanabilen teleskopik Luke Skywalker ışın kılıcı replikası.
+                            Baskı yerinde (print-in-place) üretilen, tek bir bilek hareketiyle açılıp kapanabilen teleskopik Luke Skywalker ışın kılıcı replikası.
                         </p>
                         <ul class="text-xs text-gray-300 space-y-2 mb-6">
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-400"></i> İç İçe Geçen Teleskopik Bıçak Mekanizması</li>
@@ -392,7 +392,7 @@
 
     <!-- JavaScript Kodları -->
     <script>
-        // Web3Forms Access Key (Web3forms.com adresinden aldığınız key buraya yapıştırılır)
+        // Web3Forms Access Key (Web3forms.com adresinden aliozd14531299@gmail.com için aldığınız key buraya yapıştırılır)
         const WEB3FORMS_ACCESS_KEY = "55dcb8c5-98ea-4f4b-a56e-57645e3fa113";
 
         // Görsel Listesi
@@ -548,7 +548,7 @@
             formData.append("access_key", WEB3FORMS_ACCESS_KEY);
             formData.append("subject", `🛒 Yeni Kırıkkale Siparişi: ${name} - ${totalPrice} ₺`);
             formData.append("from_name", "AIMCraft3D Web Sitesi");
-            formData.append("to_email", "imparator99@gmail.com");
+            formData.append("to_email", "aliozd14531299@gmail.com");
             
             formData.append("Müşteri Adı", name);
             formData.append("Müşteri Telefon", phone);
@@ -566,7 +566,7 @@
                 const result = await response.json();
 
                 if (result.success) {
-                    alert(`Teşekkürler ${name}! Siparişiniz başarıyla alındı. Sipariş detayları doğrudan imparator99@gmail.com adresine otomatik olarak iletildi.`);
+                    alert(`Teşekkürler ${name}! Siparişiniz başarıyla alındı. Sipariş detayları aliozd14531299@gmail.com adresine iletildi.`);
                     
                     cart = [];
                     document.getElementById('cust-name').value = '';
