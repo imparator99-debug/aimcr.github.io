@@ -165,11 +165,12 @@
             <!-- Ürün 1: Hyper Hopper -->
             <div class="glass-card rounded-3xl overflow-hidden border border-gray-800 hover:border-cyan-500/50 transition duration-300 flex flex-col justify-between group">
                 <div>
-                    <div class="relative overflow-hidden aspect-video bg-gray-950">
+                    <div class="relative overflow-hidden aspect-video bg-gray-950 flex items-center justify-center">
                         <span class="absolute top-4 left-4 z-10 px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-gradient-to-r from-amber-500 to-red-500 text-black shadow-lg animate-pulse">
                             🔥 BEST SELLER
                         </span>
-                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop" 
+                        <img id="hyper-hopper-img" 
+                             src="https://fbi.cults3d.com/uploaders/39311543/illustration-file/61c9d235-49d2-4423-afad-521919b49de7/hyper-hopper-heros-03.jpg" 
                              alt="Hyper Hopper 3D Print" 
                              class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     </div>
@@ -206,7 +207,7 @@
                             ✨ KOLEKSİYON SERİSİ
                         </span>
                         <img id="lightsaber-img" 
-                             src="https://images.unsplash.com/photo-1601814933824-fd0b574dd592?q=80&w=1000&auto=format&fit=crop" 
+                             src="https://images.cults3d.com/qU3P_O86tA-mX-Z2y2uI6c0s-zY=/516x516/filters:no_upscale()/https://fbi.cults3d.com/uploaders/13368297/illustration-file/963e6e87-6e3e-4f76-88a4-e9a039750012/Luke-Lightsaber-Collapsing.jpg" 
                              alt="Luke Skywalker Collapsing Lightsaber" 
                              class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     </div>
@@ -395,19 +396,24 @@
         // Web3Forms Access Key (Web3forms.com adresinden aliozd14531299@gmail.com için aldığınız key buraya yapıştırılır)
         const WEB3FORMS_ACCESS_KEY = "55dcb8c5-98ea-4f4b-a56e-57645e3fa113";
 
-        // Görsel Listesi
-        const lightsaberImages = [
-            "https://images.unsplash.com/photo-1601814933824-fd0b574dd592?q=80&w=1000&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1579566346927-c68383817a25?q=80&w=1000&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=1000&auto=format&fit=crop"
-        ];
-        
-        const selectedLightsaberImg = lightsaberImages[Math.floor(Math.random() * lightsaberImages.length)];
-        
+        // Görsellerin Yüklenme Kontrolü ve Kırılma Önleyici Mekanizma
+        const hyperHopperImgURL = "https://fbi.cults3d.com/uploaders/39311543/illustration-file/61c9d235-49d2-4423-afad-521919b49de7/hyper-hopper-heros-03.jpg";
+        const lightsaberImgURL = "https://images.cults3d.com/qU3P_O86tA-mX-Z2y2uI6c0s-zY=/516x516/filters:no_upscale()/https://fbi.cults3d.com/uploaders/13368297/illustration-file/963e6e87-6e3e-4f76-88a4-e9a039750012/Luke-Lightsaber-Collapsing.jpg";
+
         document.addEventListener("DOMContentLoaded", function() {
-            const lightsaberEl = document.getElementById("lightsaber-img");
-            if (lightsaberEl) {
-                lightsaberEl.src = selectedLightsaberImg;
+            const hyperEl = document.getElementById("hyper-hopper-img");
+            const saberEl = document.getElementById("lightsaber-img");
+
+            if (hyperEl) {
+                hyperEl.onerror = function() {
+                    // Eğer dış resim yüklenemezse yerel fallback
+                    this.src = "hyperhopper.jpg";
+                };
+            }
+            if (saberEl) {
+                saberEl.onerror = function() {
+                    this.src = "lightsaber.jpg";
+                };
             }
         });
 
@@ -417,13 +423,13 @@
                 id: 'hyper-hopper',
                 name: 'Hyper Hopper (Best Seller)',
                 price: 75.00,
-                img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop'
+                img: hyperHopperImgURL
             },
             'lightsaber': {
                 id: 'lightsaber',
                 name: 'Luke Skywalker Collapsing Işın Kılıcı',
                 price: 300.00,
-                get img() { return selectedLightsaberImg; }
+                img: lightsaberImgURL
             }
         };
 
@@ -500,7 +506,7 @@
                 } else {
                     container.innerHTML = cart.map(item => `
                         <div class="flex items-center justify-between gap-3 bg-gray-800/50 p-3 rounded-xl border border-gray-700">
-                            <img src="${item.img}" class="w-14 h-14 object-cover rounded-lg">
+                            <img src="${item.img}" class="w-14 h-14 object-cover rounded-lg" onerror="this.src='https://via.placeholder.com/150'">
                             <div class="flex-1">
                                 <h4 class="font-bold text-xs text-white">${item.name}</h4>
                                 <p class="text-cyan-400 text-xs font-semibold mt-1">${item.price.toFixed(2)} ₺</p>
