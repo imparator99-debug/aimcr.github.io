@@ -565,11 +565,11 @@
             formData.append("from_name", "AIMCraft3D Web Sitesi");
             formData.append("to_email", "aliozd14531299@gmail.com");
             
-            formData.append("Müşteri Adı", name);
-            formData.append("Müşteri Telefon", phone);
-            formData.append("Müşteri E-Posta", email || "Belirtilmedi");
-            formData.append("Kırıkkale Teslimat Adresi", address);
-            formData.append("Sipariş Detayı", "\n" + orderSummary);
+            formData.append("Musteri Adi", name);
+            formData.append("Musteri Telefon", phone);
+            formData.append("Musteri E-Posta", email || "Belirtilmedi");
+            formData.append("Kirikkale Teslimat Adresi", address);
+            formData.append("Siparis Detayi", "\n" + orderSummary);
             formData.append("Toplam Tutar", `${totalPrice} ₺`);
 
             try {
@@ -581,7 +581,7 @@
                 const result = await response.json();
 
                 if (result.success) {
-                    alert(`Teşekkürler ${name}! Siparişiniz başarıyla alındı. Sipariş detayları aliozd14531299@gmail.com adresine iletildi.`);
+                    alert(`Teşekkürler ${name}! Siparişiniz başarıyla alındı. Sipariş detayları üreticiye iletildi.`);
                     
                     cart = [];
                     document.getElementById('cust-name').value = '';
