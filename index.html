@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-31KD9SXNLL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5VN52Q6JBW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-31KD9SXNLL');
-</script>
+      gtag('config', 'G-5VN52Q6JBW');
+    </script>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>AIMCraft3D | Premium 3D Baskı & Koleksiyon Ürünleri</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -23,6 +23,7 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: #0b0f19;
             color: #f3f4f6;
+            -webkit-tap-highlight-color: transparent;
         }
         .font-orbitron {
             font-family: 'Orbitron', sans-serif;
@@ -33,11 +34,12 @@
         .glass-card {
             background: rgba(17, 24, 39, 0.75);
             backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 6px;
         }
         ::-webkit-scrollbar-track {
             background: #0b0f19;
@@ -74,7 +76,7 @@
                 </span>
             </a>
 
-            <!-- Menü Linkleri -->
+            <!-- Masaüstü Menü Linkleri -->
             <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
                 <a href="#urunler" class="hover:text-cyan-400 transition">Ürünlerimiz</a>
                 <a href="#ozellikler" class="hover:text-cyan-400 transition">Teknoloji (0.4mm)</a>
@@ -84,33 +86,46 @@
                 </a>
             </div>
 
-            <!-- Sepet Butonu -->
-            <div class="flex items-center gap-4">
-                <button onclick="toggleCart()" class="relative p-3 rounded-xl bg-gray-800/80 hover:bg-cyan-500/20 border border-gray-700 hover:border-cyan-500/50 text-cyan-400 transition">
+            <!-- Sağ Taraf: Sepet + Mobil Hamburger Butonu -->
+            <div class="flex items-center gap-3">
+                <button onclick="toggleCart()" class="relative p-3 rounded-xl bg-gray-800/80 hover:bg-cyan-500/20 border border-gray-700 hover:border-cyan-500/50 text-cyan-400 transition active:scale-95">
                     <i class="fa-solid fa-cart-shopping text-lg"></i>
                     <span id="cart-badge" class="absolute -top-1 -right-1 w-5 h-5 bg-cyan-500 text-black font-bold text-xs rounded-full flex items-center justify-center hidden">
                         0
                     </span>
                 </button>
+
+                <!-- Mobil Hamburger Menü Butonu -->
+                <button onclick="toggleMobileMenu()" class="md:hidden p-3 rounded-xl bg-gray-800/80 hover:bg-cyan-500/20 border border-gray-700 text-gray-300 transition active:scale-95">
+                    <i class="fa-solid fa-bars text-lg" id="mobile-menu-icon"></i>
+                </button>
             </div>
+        </div>
+
+        <!-- Mobil Açılır Menü -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-gray-800 bg-gray-950/95 px-4 py-4 space-y-3 transition-all">
+            <a href="#urunler" onclick="toggleMobileMenu()" class="block py-2 text-gray-300 hover:text-cyan-400 font-medium text-sm"><i class="fa-solid fa-box-open mr-2 text-cyan-400"></i> Ürünlerimiz</a>
+            <a href="#ozellikler" onclick="toggleMobileMenu()" class="block py-2 text-gray-300 hover:text-cyan-400 font-medium text-sm"><i class="fa-solid fa-microchip mr-2 text-cyan-400"></i> Teknoloji (0.4mm)</a>
+            <a href="#yorumlar" onclick="toggleMobileMenu()" class="block py-2 text-gray-300 hover:text-cyan-400 font-medium text-sm"><i class="fa-regular fa-comments mr-2 text-cyan-400"></i> Müşteri Yorumları</a>
+            <a href="#bagis" onclick="toggleMobileMenu()" class="block py-2 text-amber-400 hover:text-amber-300 font-medium text-sm"><i class="fa-solid fa-heart mr-2"></i> Destek Ol</a>
         </div>
     </nav>
 
     <!-- Hero Alanı -->
-    <header class="relative py-20 overflow-hidden">
+    <header class="relative py-12 sm:py-20 overflow-hidden">
         <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-900/20 via-gray-900/0 to-gray-900"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <span class="px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
+            <span class="px-4 py-1.5 rounded-full text-[10px] sm:text-xs font-semibold uppercase tracking-widest bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
                 Gelişmiş FDM 3D Baskı Teknolojisi
             </span>
-            <h1 class="mt-6 text-4xl sm:text-6xl font-orbitron font-black text-white tracking-tight leading-tight">
+            <h1 class="mt-6 text-3xl sm:text-6xl font-orbitron font-black text-white tracking-tight leading-tight">
                 Hayallerinizi <span class="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Filament İle</span> Şekillendiriyoruz
             </h1>
-            <p class="mt-4 text-gray-400 max-w-2xl mx-auto text-base sm:text-lg">
+            <p class="mt-4 text-gray-400 max-w-2xl mx-auto text-sm sm:text-lg">
                 <strong class="text-gray-200">0.4 mm hassas nozzle</strong> ve yüksek kaliteli filamentlerimizle ürettiğimiz mekanik ve koleksiyonluk modeller.
             </p>
             <div class="mt-8 flex justify-center gap-4">
-                <a href="#urunler" class="px-8 py-3.5 rounded-xl font-bold bg-cyan-500 hover:bg-cyan-400 text-black neon-glow transition flex items-center gap-2">
+                <a href="#urunler" class="w-full sm:w-auto px-8 py-3.5 rounded-xl font-bold bg-cyan-500 hover:bg-cyan-400 text-black neon-glow transition flex items-center justify-center gap-2 active:scale-95">
                     <i class="fa-solid fa-bag-shopping"></i> Ürünleri İncele
                 </a>
             </div>
@@ -118,7 +133,7 @@
     </header>
 
     <!-- Bilgilendirme Banderolü -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 mb-8 relative z-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-2 sm:-mt-6 mb-8 relative z-20">
         <div class="glass-card border border-amber-500/30 p-4 rounded-2xl flex flex-col sm:flex-row items-center gap-4 text-amber-300 text-xs sm:text-sm">
             <div class="flex items-center gap-3">
                 <i class="fa-solid fa-truck-fast text-2xl text-amber-400 shrink-0"></i>
@@ -131,7 +146,7 @@
     <section id="ozellikler" class="py-12 border-y border-gray-800/80 bg-gray-900/40">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="glass-card p-6 rounded-2xl flex items-center gap-4">
-                <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-2xl">
+                <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-2xl shrink-0">
                     <i class="fa-solid fa-microchip"></i>
                 </div>
                 <div>
@@ -141,7 +156,7 @@
             </div>
 
             <div class="glass-card p-6 rounded-2xl flex items-center gap-4">
-                <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-2xl">
+                <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-2xl shrink-0">
                     <i class="fa-solid fa-cubes-stacked"></i>
                 </div>
                 <div>
@@ -151,7 +166,7 @@
             </div>
 
             <div class="glass-card p-6 rounded-2xl flex items-center gap-4">
-                <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-2xl">
+                <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-2xl shrink-0">
                     <i class="fa-solid fa-location-dot"></i>
                 </div>
                 <div>
@@ -163,19 +178,19 @@
     </section>
 
     <!-- Ürün Kataloğu -->
-    <section id="urunler" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
+    <section id="urunler" class="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 sm:mb-16">
             <h2 class="text-3xl sm:text-4xl font-orbitron font-bold text-white">Ürünlerimiz</h2>
-            <p class="text-gray-400 mt-2">Atölyemizde özenle basılan 3D tasarımlar (Yalnızca Kırıkkale Teslimatlı)</p>
+            <p class="text-gray-400 text-sm sm:text-base mt-2">Atölyemizde özenle basılan 3D tasarımlar (Yalnızca Kırıkkale Teslimatlı)</p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10">
 
             <!-- Ürün 1: Hyper Hopper -->
             <div class="glass-card rounded-3xl overflow-hidden border border-gray-800 hover:border-cyan-500/50 transition duration-300 flex flex-col justify-between group">
                 <div>
                     <div class="relative overflow-hidden aspect-video bg-gray-950 flex items-center justify-center">
-                        <span class="absolute top-4 left-4 z-10 px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-gradient-to-r from-amber-500 to-red-500 text-black shadow-lg animate-pulse">
+                        <span class="absolute top-4 left-4 z-10 px-3 py-1 rounded-full text-[10px] sm:text-xs font-black uppercase tracking-wider bg-gradient-to-r from-amber-500 to-red-500 text-black shadow-lg animate-pulse">
                             🔥 BEST SELLER
                         </span>
                         <img id="hyper-hopper-img" 
@@ -185,13 +200,13 @@
                     </div>
                     <div class="p-6 sm:p-8">
                         <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-2xl font-orbitron font-bold text-white">Hyper Hopper</h3>
+                            <h3 class="text-xl sm:text-2xl font-orbitron font-bold text-white">Hyper Hopper</h3>
                             <div class="text-right">
-                                <span class="text-2xl font-bold text-cyan-400">75,00 ₺</span>
+                                <span class="text-xl sm:text-2xl font-bold text-cyan-400">75,00 ₺</span>
                                 <p class="text-[10px] text-gray-400">(65 ₺ - 80 ₺)</p>
                             </div>
                         </div>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                        <p class="text-gray-400 text-xs sm:text-sm mb-4 leading-relaxed">
                             Mekanik zıplama dinamiğine sahip, stres giderici 3D oyuncak. 0.4 mm nozzle ucu ile milimetrik toleranslarda pürüzsüz basılmıştır.
                         </p>
                         <ul class="text-xs text-gray-300 space-y-2 mb-6">
@@ -202,7 +217,7 @@
                     </div>
                 </div>
                 <div class="px-6 pb-6 sm:px-8 sm:pb-8">
-                    <button onclick="addToCart('hyper-hopper')" class="w-full py-3.5 rounded-xl font-bold bg-cyan-500 hover:bg-cyan-400 text-black transition flex items-center justify-center gap-2">
+                    <button onclick="addToCart('hyper-hopper')" class="w-full py-3.5 rounded-xl font-bold bg-cyan-500 hover:bg-cyan-400 text-black transition flex items-center justify-center gap-2 active:scale-95">
                         <i class="fa-solid fa-cart-plus"></i> Sepete Ekle
                     </button>
                 </div>
@@ -212,7 +227,7 @@
             <div class="glass-card rounded-3xl overflow-hidden border border-gray-800 hover:border-cyan-500/50 transition duration-300 flex flex-col justify-between group">
                 <div>
                     <div class="relative overflow-hidden aspect-video bg-gray-950 flex items-center justify-center">
-                        <span class="absolute top-4 left-4 z-10 px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">
+                        <span class="absolute top-4 left-4 z-10 px-3 py-1 rounded-full text-[10px] sm:text-xs font-black uppercase tracking-wider bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">
                             ✨ KOLEKSİYON SERİSİ
                         </span>
                         <img id="lightsaber-img" 
@@ -222,10 +237,10 @@
                     </div>
                     <div class="p-6 sm:p-8">
                         <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-2xl font-orbitron font-bold text-white">Luke Skywalker Collapsing Işın Kılıcı</h3>
-                            <span class="text-2xl font-bold text-cyan-400">300,00 ₺</span>
+                            <h3 class="text-xl sm:text-2xl font-orbitron font-bold text-white">Luke Skywalker Collapsing Işın Kılıcı</h3>
+                            <span class="text-xl sm:text-2xl font-bold text-cyan-400">300,00 ₺</span>
                         </div>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                        <p class="text-gray-400 text-xs sm:text-sm mb-4 leading-relaxed">
                             Baskı yerinde (print-in-place) üretilen, tek bir bilek hareketiyle açılıp kapanabilen teleskopik Luke Skywalker ışın kılıcı replikası.
                         </p>
                         <ul class="text-xs text-gray-300 space-y-2 mb-6">
@@ -236,7 +251,7 @@
                     </div>
                 </div>
                 <div class="px-6 pb-6 sm:px-8 sm:pb-8">
-                    <button onclick="addToCart('lightsaber')" class="w-full py-3.5 rounded-xl font-bold bg-cyan-500 hover:bg-cyan-400 text-black transition flex items-center justify-center gap-2">
+                    <button onclick="addToCart('lightsaber')" class="w-full py-3.5 rounded-xl font-bold bg-cyan-500 hover:bg-cyan-400 text-black transition flex items-center justify-center gap-2 active:scale-95">
                         <i class="fa-solid fa-cart-plus"></i> Sepete Ekle
                     </button>
                 </div>
@@ -246,18 +261,18 @@
     </section>
 
     <!-- Müşteri Yorumları -->
-    <section id="yorumlar" class="py-20 bg-gray-900/30 border-t border-gray-800">
+    <section id="yorumlar" class="py-16 sm:py-20 bg-gray-900/30 border-t border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-orbitron font-bold text-white">Müşteri Yorumları</h2>
-                <p class="text-gray-400 text-sm mt-1">Kırıkkale'deki müşterilerimizin ürünlerimiz hakkındaki değerlendirmeleri</p>
+                <h2 class="text-2xl sm:text-3xl font-orbitron font-bold text-white">Müşteri Yorumları</h2>
+                <p class="text-gray-400 text-xs sm:text-sm mt-1">Kırıkkale'deki müşterilerimizin ürünlerimiz hakkındaki değerlendirmeleri</p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <!-- Yorum Listesi Container -->
                 <div id="reviews-container" class="lg:col-span-2 space-y-4">
-                    <div id="no-reviews" class="glass-card p-8 rounded-2xl text-center text-gray-400 border border-dashed border-gray-700">
-                        <i class="fa-regular fa-comments text-4xl mb-3 text-cyan-400/50"></i>
+                    <div id="no-reviews" class="glass-card p-6 sm:p-8 rounded-2xl text-center text-gray-400 border border-dashed border-gray-700">
+                        <i class="fa-regular fa-comments text-3xl sm:text-4xl mb-3 text-cyan-400/50"></i>
                         <p class="text-sm">Henüz kayıtlı bir değerlendirme bulunmuyor.</p>
                         <p class="text-xs text-gray-500 mt-1">İlk yorumu siz yapmak ister misiniz?</p>
                     </div>
@@ -269,11 +284,11 @@
                     <form id="review-form" onsubmit="addReview(event)" class="space-y-4">
                         <div>
                             <label class="block text-xs font-medium text-gray-400 mb-1">Adınız Soyadınız</label>
-                            <input type="text" id="review-name" required placeholder="Örn: Ahmet K." class="w-full px-3 py-2 rounded-lg bg-gray-900 border border-gray-700 text-white text-sm focus:outline-none focus:border-cyan-500">
+                            <input type="text" id="review-name" required placeholder="Örn: Ahmet K." class="w-full px-3 py-2.5 sm:py-2 rounded-lg bg-gray-900 border border-gray-700 text-white text-base md:text-xs focus:outline-none focus:border-cyan-500">
                         </div>
                         <div>
                             <label class="block text-xs font-medium text-gray-400 mb-1">Puanınız</label>
-                            <select id="review-rating" class="w-full px-3 py-2 rounded-lg bg-gray-900 border border-gray-700 text-white text-sm focus:outline-none focus:border-cyan-500">
+                            <select id="review-rating" class="w-full px-3 py-2.5 sm:py-2 rounded-lg bg-gray-900 border border-gray-700 text-white text-base md:text-xs focus:outline-none focus:border-cyan-500">
                                 <option value="5">⭐⭐⭐⭐⭐ (5/5 Mükemmel)</option>
                                 <option value="4">⭐⭐⭐⭐ (4/5 Çok İyi)</option>
                                 <option value="3">⭐⭐⭐ (3/5 Ortalama)</option>
@@ -281,9 +296,9 @@
                         </div>
                         <div>
                             <label class="block text-xs font-medium text-gray-400 mb-1">Yorumunuz</label>
-                            <textarea id="review-text" required rows="3" placeholder="Baskı kalitesi, mekanik çalışma ve teslimat hakkındaki düşünceleriniz..." class="w-full px-3 py-2 rounded-lg bg-gray-900 border border-gray-700 text-white text-sm focus:outline-none focus:border-cyan-500"></textarea>
+                            <textarea id="review-text" required rows="3" placeholder="Baskı kalitesi, mekanik çalışma ve teslimat hakkındaki düşünceleriniz..." class="w-full px-3 py-2.5 sm:py-2 rounded-lg bg-gray-900 border border-gray-700 text-white text-base md:text-xs focus:outline-none focus:border-cyan-500"></textarea>
                         </div>
-                        <button type="submit" class="w-full py-2.5 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-black font-bold text-sm transition">
+                        <button type="submit" class="w-full py-3 sm:py-2.5 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-black font-bold text-sm transition active:scale-95">
                             Yorumu Gönder
                         </button>
                     </form>
@@ -294,13 +309,13 @@
 
     <!-- ETKİLEŞİMLİ BAĞIŞ BÖLÜMÜ -->
     <section id="bagis" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="glass-card rounded-3xl p-8 sm:p-12 border border-amber-500/20 bg-gradient-to-br from-amber-500/5 via-gray-900 to-cyan-500/5 text-center relative overflow-hidden">
+        <div class="glass-card rounded-3xl p-6 sm:p-12 border border-amber-500/20 bg-gradient-to-br from-amber-500/5 via-gray-900 to-cyan-500/5 text-center relative overflow-hidden">
             <div class="relative z-10 max-w-2xl mx-auto">
                 <div class="w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 mx-auto flex items-center justify-center text-xl mb-4">
                     <i class="fa-solid fa-heart"></i>
                 </div>
-                <h2 class="text-3xl font-orbitron font-bold text-white">AIMCraft3D Atölyesine Destek Olun</h2>
-                <p class="text-gray-300 text-sm mt-2">
+                <h2 class="text-2xl sm:text-3xl font-orbitron font-bold text-white">AIMCraft3D Atölyesine Destek Olun</h2>
+                <p class="text-gray-300 text-xs sm:text-sm mt-2">
                     Yeni filament stokları edinmemize ve 3D tasarım geliştirme süreçlerimize katkıda bulunabilirsiniz.
                 </p>
 
@@ -317,20 +332,20 @@
 
                 <!-- Miktar Butonları ve Özel Girdi -->
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6">
-                    <button onclick="selectDonateAmount(50, this)" class="donate-btn py-3 rounded-xl bg-cyan-500/20 border border-cyan-500/60 text-cyan-300 font-bold text-sm transition">
+                    <button onclick="selectDonateAmount(50, this)" class="donate-btn py-3 rounded-xl bg-cyan-500/20 border border-cyan-500/60 text-cyan-300 font-bold text-sm transition active:scale-95">
                         50 ₺
                     </button>
-                    <button onclick="selectDonateAmount(100, this)" class="donate-btn py-3 rounded-xl bg-gray-800/80 hover:bg-cyan-500/20 border border-gray-700 text-gray-300 font-bold text-sm transition">
+                    <button onclick="selectDonateAmount(100, this)" class="donate-btn py-3 rounded-xl bg-gray-800/80 hover:bg-cyan-500/20 border border-gray-700 text-gray-300 font-bold text-sm transition active:scale-95">
                         100 ₺
                     </button>
-                    <button onclick="selectDonateAmount(250, this)" class="donate-btn py-3 rounded-xl bg-gray-800/80 hover:bg-cyan-500/20 border border-gray-700 text-gray-300 font-bold text-sm transition">
+                    <button onclick="selectDonateAmount(250, this)" class="donate-btn py-3 rounded-xl bg-gray-800/80 hover:bg-cyan-500/20 border border-gray-700 text-gray-300 font-bold text-sm transition active:scale-95">
                         250 ₺
                     </button>
-                    <input type="number" id="custom-donate-input" oninput="handleCustomDonateInput(this)" placeholder="Özel (₺)" class="py-3 px-3 rounded-xl bg-gray-900 border border-gray-700 text-white text-center text-sm font-bold focus:outline-none focus:border-amber-400">
+                    <input type="number" id="custom-donate-input" oninput="handleCustomDonateInput(this)" placeholder="Özel (₺)" class="py-3 px-3 rounded-xl bg-gray-900 border border-gray-700 text-white text-center text-base md:text-sm font-bold focus:outline-none focus:border-amber-400">
                 </div>
 
                 <!-- Bağış Yap Butonu -->
-                <button onclick="executeDonation()" class="mt-6 w-full py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-extrabold transition shadow-lg flex items-center justify-center gap-2">
+                <button onclick="executeDonation()" class="mt-6 w-full py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-extrabold transition shadow-lg flex items-center justify-center gap-2 active:scale-95">
                     <i class="fa-solid fa-gift"></i> Destek Gönder
                 </button>
             </div>
@@ -345,44 +360,44 @@
         </div>
     </footer>
 
-    <!-- Sepet Çekmecesi (Slide Drawer) -->
+    <!-- Sepet Çekmecesi (Slide Drawer - Mobil Uyumlu) -->
     <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden pointer-events-none transition-opacity duration-300 opacity-0">
         <div onclick="toggleCart()" class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity"></div>
 
-        <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
-            <div class="w-screen max-w-md bg-gray-900 text-white shadow-2xl border-l border-gray-800 pointer-events-auto flex flex-col justify-between">
+        <div class="fixed inset-y-0 right-0 max-w-full flex pl-0 sm:pl-10">
+            <div class="w-screen max-w-md bg-gray-900 text-white shadow-2xl border-l border-gray-800 pointer-events-auto flex flex-col justify-between h-full max-h-screen">
                 
                 <!-- Sepet Başlığı -->
-                <div class="p-6 border-b border-gray-800 flex justify-between items-center">
-                    <h3 class="font-orbitron font-bold text-lg flex items-center gap-2">
+                <div class="p-4 sm:p-6 border-b border-gray-800 flex justify-between items-center shrink-0">
+                    <h3 class="font-orbitron font-bold text-base sm:text-lg flex items-center gap-2">
                         <i class="fa-solid fa-cart-shopping text-cyan-400"></i> Alışveriş Sepeti
                     </h3>
-                    <button onclick="toggleCart()" class="text-gray-400 hover:text-white text-xl">
+                    <button onclick="toggleCart()" class="p-2 text-gray-400 hover:text-white text-xl active:scale-95">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
 
                 <!-- Sepetteki Ürünler Listesi -->
-                <div id="cart-items" class="p-6 overflow-y-auto flex-1 space-y-4">
+                <div id="cart-items" class="p-4 sm:p-6 overflow-y-auto flex-1 space-y-4">
                     <p class="text-gray-500 text-center py-10">Sepetiniz henüz boş.</p>
                 </div>
 
                 <!-- Müşteri İletişim ve Teslimat Adresi Formu -->
-                <div class="p-6 border-t border-gray-800 bg-gray-950/80 space-y-3">
+                <div class="p-4 sm:p-6 border-t border-gray-800 bg-gray-950/90 space-y-3 shrink-0 overflow-y-auto max-h-[60vh]">
                     <div class="flex items-center justify-between">
                         <h4 class="text-xs font-bold text-cyan-400 uppercase tracking-wider">Teslimat Bilgileri</h4>
                         <span class="text-[10px] text-amber-400 font-semibold">📍 Sadece Kırıkkale İçi</span>
                     </div>
                     
                     <div>
-                        <input type="text" id="cust-name" placeholder="Adınız Soyadınız" class="w-full px-3 py-2 rounded-lg bg-gray-900 border border-gray-700 text-white text-xs focus:outline-none focus:border-cyan-500">
+                        <input type="text" id="cust-name" placeholder="Adınız Soyadınız" class="w-full px-3 py-2.5 sm:py-2 rounded-lg bg-gray-900 border border-gray-700 text-white text-base md:text-xs focus:outline-none focus:border-cyan-500">
                     </div>
-                    <div class="grid grid-cols-2 gap-2">
-                        <input type="tel" id="cust-phone" placeholder="Telefon (05XX...)" class="w-full px-3 py-2 rounded-lg bg-gray-900 border border-gray-700 text-white text-xs focus:outline-none focus:border-cyan-500">
-                        <input type="email" id="cust-email" placeholder="E-posta Adresiniz" class="w-full px-3 py-2 rounded-lg bg-gray-900 border border-gray-700 text-white text-xs focus:outline-none focus:border-cyan-500">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        <input type="tel" id="cust-phone" placeholder="Telefon (05XX...)" class="w-full px-3 py-2.5 sm:py-2 rounded-lg bg-gray-900 border border-gray-700 text-white text-base md:text-xs focus:outline-none focus:border-cyan-500">
+                        <input type="email" id="cust-email" placeholder="E-posta Adresiniz" class="w-full px-3 py-2.5 sm:py-2 rounded-lg bg-gray-900 border border-gray-700 text-white text-base md:text-xs focus:outline-none focus:border-cyan-500">
                     </div>
                     <div>
-                        <textarea id="cust-address" rows="2" placeholder="Kırıkkale İçi Açık Adresiniz (Mahalle, Sokak, No)" class="w-full px-3 py-2 rounded-lg bg-gray-900 border border-gray-700 text-white text-xs focus:outline-none focus:border-cyan-500"></textarea>
+                        <textarea id="cust-address" rows="2" placeholder="Kırıkkale İçi Açık Adresiniz (Mahalle, Sokak, No)" class="w-full px-3 py-2.5 sm:py-2 rounded-lg bg-gray-900 border border-gray-700 text-white text-base md:text-xs focus:outline-none focus:border-cyan-500"></textarea>
                     </div>
 
                     <div class="flex justify-between text-base font-bold pt-2 border-t border-gray-800">
@@ -391,7 +406,7 @@
                     </div>
 
                     <!-- Otomatik E-Posta Gönderim Butonu -->
-                    <button id="checkout-btn" onclick="checkout()" class="w-full py-3.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-bold transition flex items-center justify-center gap-2">
+                    <button id="checkout-btn" onclick="checkout()" class="w-full py-3.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-bold transition flex items-center justify-center gap-2 active:scale-95">
                         <span>Siparişi Tamamla</span> <i class="fa-solid fa-paper-plane"></i>
                     </button>
                 </div>
@@ -402,29 +417,28 @@
 
     <!-- JavaScript Kodları -->
     <script>
-        // Web3Forms Access Key (Web3forms.com adresinden aliozd14531299@gmail.com için aldığınız key buraya yapıştırılır)
+        // Web3Forms Access Key
         const WEB3FORMS_ACCESS_KEY = "55dcb8c5-98ea-4f4b-a56e-57645e3fa113";
 
-        // Görsellerin Yüklenme Kontrolü ve Kırılma Önleyici Mekanizma
-        const hyperHopperImgURL = "https://fbi.cults3d.com/uploaders/39311543/illustration-file/61c9d235-49d2-4423-afad-521919b49de7/hyper-hopper-heros-03.jpg";
-        const lightsaberImgURL = "https://images.cults3d.com/qU3P_O86tA-mX-Z2y2uI6c0s-zY=/516x516/filters:no_upscale()/https://fbi.cults3d.com/uploaders/13368297/illustration-file/963e6e87-6e3e-4f76-88a4-e9a039750012/Luke-Lightsaber-Collapsing.jpg";
+        // Görseller
+        const hyperHopperImgURL = "hyperhopper.jpg";
+        const lightsaberImgURL = "lightsaber.jpeg";
 
-        document.addEventListener("DOMContentLoaded", function() {
-            const hyperEl = document.getElementById("hyper-hopper-img");
-            const saberEl = document.getElementById("lightsaber-img");
-
-            if (hyperEl) {
-                hyperEl.onerror = function() {
-                    // Eğer dış resim yüklenemezse yerel fallback
-                    this.src = "hyperhopper.jpg";
-                };
+        // Mobil Menü Aç/Kapat
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('mobile-menu-icon');
+            if (menu) {
+                menu.classList.toggle('hidden');
+                if (icon) {
+                    if (menu.classList.contains('hidden')) {
+                        icon.className = 'fa-solid fa-bars text-lg';
+                    } else {
+                        icon.className = 'fa-solid fa-xmark text-lg';
+                    }
+                }
             }
-            if (saberEl) {
-                saberEl.onerror = function() {
-                    this.src = "lightsaber.jpg";
-                };
-            }
-        });
+        }
 
         // Ürün Veritabanı
         const products = {
@@ -521,9 +535,9 @@
                                 <p class="text-cyan-400 text-xs font-semibold mt-1">${item.price.toFixed(2)} ₺</p>
                             </div>
                             <div class="flex items-center gap-2">
-                                <button onclick="changeQty('${item.id}', -1)" class="w-6 h-6 rounded bg-gray-700 hover:bg-gray-600 flex items-center justify-center text-xs">-</button>
+                                <button onclick="changeQty('${item.id}', -1)" class="w-7 h-7 rounded bg-gray-700 hover:bg-gray-600 flex items-center justify-center text-xs active:scale-95">-</button>
                                 <span class="text-xs font-bold">${item.qty}</span>
-                                <button onclick="changeQty('${item.id}', 1)" class="w-6 h-6 rounded bg-gray-700 hover:bg-gray-600 flex items-center justify-center text-xs">+</button>
+                                <button onclick="changeQty('${item.id}', 1)" class="w-7 h-7 rounded bg-gray-700 hover:bg-gray-600 flex items-center justify-center text-xs active:scale-95">+</button>
                             </div>
                         </div>
                     `).join('');
@@ -565,11 +579,11 @@
             formData.append("from_name", "AIMCraft3D Web Sitesi");
             formData.append("to_email", "aliozd14531299@gmail.com");
             
-            formData.append("Musteri Adi", name);
-            formData.append("Musteri Telefon", phone);
-            formData.append("Musteri E-Posta", email || "Belirtilmedi");
-            formData.append("Kirikkale Teslimat Adresi", address);
-            formData.append("Siparis Detayi", "\n" + orderSummary);
+            formData.append("Müşteri Adı", name);
+            formData.append("Müşteri Telefon", phone);
+            formData.append("Müşteri E-Posta", email || "Belirtilmedi");
+            formData.append("Kırıkkale Teslimat Adresi", address);
+            formData.append("Sipariş Detayı", "\n" + orderSummary);
             formData.append("Toplam Tutar", `${totalPrice} ₺`);
 
             try {
@@ -581,7 +595,7 @@
                 const result = await response.json();
 
                 if (result.success) {
-                    alert(`Teşekkürler ${name}! Siparişiniz başarıyla alındı. Sipariş detayları üreticiye iletildi.`);
+                    alert(`Teşekkürler ${name}! Siparişiniz başarıyla alındı. Sipariş detayları aliozd14531299@gmail.com adresine iletildi.`);
                     
                     cart = [];
                     document.getElementById('cust-name').value = '';
